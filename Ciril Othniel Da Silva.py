@@ -6,32 +6,33 @@ def verifye() :
     if len(modpas) < 7 :
         print('Motpass lan two kout, li dwe rive nan 7 karakte')
     else :
-        testMajiskil = False
-        testDijit = False
-        testSpesyal = False
+        m = False
+        d = False
+        s = False
         
         for karakte in modpas :
             if karakte.isupper() :
-                testMajiskil = True
+                m = True
             if karakte.isdigit() :
-                testDijit = True
+                d = True
             if not karakte.isalpha() and not karakte.isdigit() :
-                testSpesyal = True
-
-        if not testMajiskil :
+                s = True
+            
+        if not m :
             print('Motpass lan dwe gen karakte majiskil ladan l')
             return False
-        if not testDijit :
+        elif not d :
             print('Motpass lan dwe gen dijit ladan l')
             return False
-        if not testSpesyal :
+        elif not s :
             print('Motpass lan dwe gen karakte spesyal ladan l')
             return False
-        
-        return True
-
-while not verifye() :
-    verifye()
+        else :
+            return True
+         
+test = verifye()
+while not test :
+    test = verifye()
 
 print('Modpass ou an korek')
 
